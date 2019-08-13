@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                  <!--  dao层的位置 -->
+<mapper namespace="com.junlaninfo.dao.MsmerchantDao">
+<!--      CREATE TABLE `msmerchant` (
+  `id` int(100) NOT NULL,
+  `merchantname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `merchantaccount` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `merchantpassword` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `merchantscope` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `merchantshopname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin; -->
+
+     
+	<select id="queryMsmerchantbyid" parameterType="int" resultType="msmerchant">
+		select id,merchantname,merchantaccount,merchantaccount,merchantscope
+		, merchantshopname from msmerchant where id = #{value}
+	</select>
+	
+	<insert id="inserMsmerchant" parameterType="msmerchant">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		<!-- insert into Person(id,name,age,address,birthday) value(#{id},#{name},#{age},#{address},#{birthday}) -->
+	    insert into msmerchant(merchantname,merchantaccount,merchantpassword,merchantscope,
+	    merchantshopname) values(#{merchantname},#{merchantaccount},#{merchantpassword},
+	    #{merchantscope},#{merchantshopname})
+	</insert>
+	
+	<update id="updateMsmerchant" parameterType="int" >
+	    update msmerchant set merchantname =#{merchantname},merchantaccount=#{merchantaccount},
+	    merchantpassword=#{merchantpassword},merchantscope=#{merchantscope},merchantshopname=#{merchantshopname}
+	    where id=#{id}
+	</update>
+	
+	<delete  id="deleteMsmerchant"  parameterType="int">
+	     delete from msmerchant where id=#{id}
+	</delete>
+</mapper>
