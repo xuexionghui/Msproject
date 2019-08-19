@@ -7,7 +7,16 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <typeAliases>  
         <!-- 别名定义 -->  <!--  实体类的位置-->
         <typeAlias type="com.junlaninfo.entity.Person" alias="person" />
+        <!--  商户-->
         <typeAlias type="com.junlaninfo.entity.Msmerchant" alias="msmerchant"/>
+        <typeAlias type="com.junlaninfo.entity.vo.MsmerchantVo" alias="msmerchantVo"/>
+        <!--  秒杀用户-->
+        <typeAlias type="com.junlaninfo.entity.Msuser" alias="msuser"/>
+        <typeAlias type="com.junlaninfo.entity.vo.Msuser.MsuserVo" alias="msuserVo"/>
+        
+        <!--  产品 com.junlaninfo.entity.Msproduct --> 
+        <typeAlias type="com.junlaninfo.entity.Msproduct" alias="msproduct"/>
+        <typeAlias type="com.junlaninfo.entity.vo.Msproduct.MsProductVo" alias="msproductvo"/>
     </typeAliases>
      
 </configuration>  

@@ -14,6 +14,7 @@ public class Msmerchant {
 
 
 	 */
+	
 	private  int id;
 	private String  merchantname;     //商户名
 	private String  merchantaccount;  //

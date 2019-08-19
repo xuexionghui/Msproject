@@ -18,8 +18,11 @@
 </form>
 </body>
 <script type="text/javascript">
-	function submit(obj){
+	/* function submit(obj){
 		obj.parent.sumbit();
+	} */
+	function submit(obj){
+		obj.parent.submit();
 	}
 </script>
 </html>

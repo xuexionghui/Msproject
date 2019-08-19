@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    #{merchantscope},#{merchantshopname})
 	</insert>
 	
-	<update id="updateMsmerchant" parameterType="int" >
+	<update id="updateMsmerchant" parameterType="msmerchant" >
 	    update msmerchant set merchantname =#{merchantname},merchantaccount=#{merchantaccount},
 	    merchantpassword=#{merchantpassword},merchantscope=#{merchantscope},merchantshopname=#{merchantshopname}
 	    where id=#{id}
@@ -39,4 +39,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete  id="deleteMsmerchant"  parameterType="int">
 	     delete from msmerchant where id=#{id}
 	</delete>
+	
+<!-- 	<sql id="consutomsql" >
+		<if test="msmerchant != null">
+			<if test="msmerchant.merchantname!=null and msmerchant.merchantname!=''">
+					and merchantname = "${msmerchant.merchantname}"
+				</if>
+				<if test="msmerchant.merchantshopname!=null and msmerchant.merchantshopname!='' ">
+					and merchantshopname = "${msmerchant.merchantshopname}"
+			</if>
+			<if test="msmerchant.merchantaccount!=null and msmerchant.merchantaccount!='' ">
+					and merchantaccount = "${msmerchant.merchantaccount}"
+			</if>
+			<if test="msmerchant.merchantpassword!=null and msmerchant.merchantpassword!='' ">
+					and msmerchant.merchantpassword = "${msmerchant.merchantpassword}"
+			</if>
+			<if test="msmerchant.merchantscope!=null and msmerchant.merchantscope!='' ">
+					and merchantscope = "${msmerchant.merchantscope}"
+			</if>
+		</if>
+	</sql>
+	
+	<select id="queryMsmerchantbyvo" parameterType="msmerchantVo" resultType="msmerchant">
+	select * from msmerchant
+		<where>
+			<include refid="consutomsql"></include>
+		</where>
+	</select> -->
+	<sql id="consutomsql" >
+		<if test="constomMsmerchant != null">
+			<if test="constomMsmerchant.merchantname!=null and constomMsmerchant.merchantname!=''">
+					and merchantname = "${constomMsmerchant.merchantname}"
+				</if>
+				<if test="constomMsmerchant.merchantshopname!=null and constomMsmerchant.merchantshopname!='' ">
+					and merchantshopname = "${constomMsmerchant.merchantshopname}"
+			</if>
+			<if test="constomMsmerchant.merchantaccount!=null and constomMsmerchant.merchantaccount!='' ">
+					and merchantaccount = "${constomMsmerchant.merchantaccount}"
+			</if>
+			<if test="constomMsmerchant.merchantpassword!=null and constomMsmerchant.merchantpassword!='' ">
+					and constomMsmerchant.merchantpassword = "${constomMsmerchant.merchantpassword}"
+			</if>
+			<if test="constomMsmerchant.merchantscope!=null and constomMsmerchant.merchantscope!='' ">
+					and merchantscope = "${constomMsmerchant.merchantscope}"
+			</if>
+		</if>
+	</sql>
+	
+	<select id="queryMsmerchantbyvo" parameterType="msmerchantVo" resultType="msmerchant">
+	select * from msmerchant 
+		<where>
+			<include refid="consutomsql"></include>
+		</where>
+	</select>
 </mapper>

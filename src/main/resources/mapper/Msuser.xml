@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                  <!--  dao层的位置 -->
+<mapper namespace="com.junlaninfo.dao.MsuserDao">
+   <!--  public Msmerchant  queryMsuserbyid(int id);
+	public void  inserMsuser(Msuser msuser);
+	public void updateMsuser( Msuser msuser);
+	public void deleteMsuser(int id);
+	public List<Msuser> queryMsuserbyvo(MsuserVo msuserVo);
+	CREATE TABLE `msuser` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `useraccount` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `userpassword` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  ` usersex` int(11) DEFAULT NULL,
+  `userage` int(11) DEFAULT NULL,
+  ` useraddress` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `useremail` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`) -->
+	
+	<select id="queryMsuserbyid" parameterType="int" resultType="msuser">
+	select * from  msuser where id=#{id}
+	</select>
+	
+<insert id="inserMsuser" parameterType="msuser">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into msuser(name,useraccount,userpassword) value(#{name},#{useraccount},#{userpassword})
+	</insert>
+	
+	<update id="updateMsuser" parameterType="msuser">
+	  update msuser set name=#{name},useraccount=#{useraccount}, 
+	   userpassword=#{userpassword} where id=#{id}
+	  <!--  useraddress=#{useraddress}, useremail= #{useremail} --> 
+	</update>
+	<delete id="deleteMsuser"  parameterType="int">
+	  delete * from msuser where id=#{id}
+	</delete>
+	
+	<sql id="consutomsql" >
+		<if test="customMsuser != null">
+			<if test="customMsuser.name!=null and customMsuser.name!=''">
+					and name = "${customMsuser.name}"
+				</if>
+				<if test="customMsuser.useraccount!=null and customMsuser.useraccount!='' ">
+					and useraccount = "${customMsuser.useraccount}"
+			</if>
+			<if test="customMsuser.userpassword!=null and customMsuser.userpassword!='' ">
+					and userpassword = "${customMsuser.userpassword}"
+			</if>
+			<!-- <if test="customMsuser.usersex!=null and customMsuser.usersex!='' ">
+					and customMsuser.usersex = "${customMsuser.usersex}"
+			</if>
+			<if test="customMsuser.userage!=null and customMsuser.userage!='' ">
+					and userage = "${customMsuser.userage}"
+			</if>
+			
+			<if test="customMsuser.useraddress!=null and customMsuser.useraddress!='' ">
+					anduseraddress = "${customMsuser.useraddress}"
+			</if>
+			<if test="customMsuser.useremail!=null and customMsuser.useremail!='' ">
+					anduseremail= "${customMsuser.useremail}"
+			</if> -->
+		</if>
+	</sql>
+	
+	<select id="queryMsuserbyvo" parameterType="msuserVo" resultType="msuser">
+	select * from msuser
+		<where>
+			<include refid="consutomsql"></include>
+		</where> 
+	</select>
+</mapper>

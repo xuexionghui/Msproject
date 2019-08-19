@@ -40,6 +40,8 @@
           <array>
               <value>classpath:mapper/Person.xml</value>
               <value>classpath:mapper/Msmerchant.xml</value>
+              <value>classpath:mapper/Msuser.xml</value>
+              <value>classpath:mapper/Msproduct.xml</value>
             
           </array>
       </property>
