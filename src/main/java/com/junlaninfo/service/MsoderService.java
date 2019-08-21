@@ -15,5 +15,9 @@ public class MsoderService {
 		msoderDao.insertMsOrder(msorder);
 		
 	}
+	public void updateorderpaystatusbyid(int i, int id, int paytype) {
+		msoderDao.updateorderpaystatusbyid(i,id,paytype);
+		
+	}
 
 }

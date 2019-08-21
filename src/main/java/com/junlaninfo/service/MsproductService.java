@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.junlaninfo.dao.MsproductDao;
+import com.junlaninfo.entity.Msorder;
 import com.junlaninfo.entity.Msproduct;
 import com.junlaninfo.entity.vo.Msproduct.MsProductVo;
 
@@ -56,5 +57,12 @@ public class MsproductService {
 		msproduct.setAuditstate(state);
 		msproductDao.updatemsproductstate(msproduct);
 		
+	}
+	/*
+	 * 根据用户的ID查询订单
+	 */
+	public List<Msorder> queryorderbyuserid(int id) {
+		
+		return msproductDao.queryorderbyuserid(id);
 	}
 }

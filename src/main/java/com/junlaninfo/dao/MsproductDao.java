@@ -2,6 +2,7 @@ package com.junlaninfo.dao;
 
 import java.util.List;
 
+import com.junlaninfo.entity.Msorder;
 import com.junlaninfo.entity.Msproduct;
 import com.junlaninfo.entity.vo.Msproduct.MsProductVo;
 
@@ -18,4 +19,6 @@ public void updatemsproduct(Msproduct msproductinfo);
 
 public void updatemsproductstate(Msproduct
 		msproduct);
+
+public List<Msorder> queryorderbyuserid(int id);
 }

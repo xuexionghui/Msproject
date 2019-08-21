@@ -13,6 +13,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into msorder(productid,payamount,userid,merchantid,createtime,paystatus,receivingadress,receivingphone,receivingname,tradeserialnumber,num) value(#{productid},#{payamount},#{userid},#{merchantid},#{createtime},#{paystatus},#{receivingadress},#{receivingphone},#{receivingname},#{tradeserialnumber},#{num})
 	</insert>
 	
+	<select id="queryorderbyuserid" parameterType="int" resultType="msorder">
+		select * from msorder where userid = #{value}
+	</select>
+	
+	<update id="updateorderpaystatusbyid" parameterType="msorderVo">
+		update msorder set paystatus=#{constomOrder.paystatus},paytype=#{constomOrder.paytype} where id=#{constomOrder.id}
+	</update>
+	
 	
 	
 	
