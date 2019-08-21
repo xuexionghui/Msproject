@@ -17,6 +17,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <!--  产品 com.junlaninfo.entity.Msproduct --> 
         <typeAlias type="com.junlaninfo.entity.Msproduct" alias="msproduct"/>
         <typeAlias type="com.junlaninfo.entity.vo.Msproduct.MsProductVo" alias="msproductvo"/>
+        <!-- 产品详情 msproductdetail com.junlaninfo.entity.Msproductdetail -->
+        <typeAlias type="com.junlaninfo.entity.Msproductdetail" alias="msproductdetail"/>
+        <!-- 订单  msorder -->
+        <typeAlias type="com.junlaninfo.entity.Msorder" alias="msorder"/>
     </typeAliases>
      
 </configuration>  

@@ -30,4 +30,8 @@ public class MsuserService {
 	public List<Msuser> queryMsuserbyvo(MsuserVo msuserVo){
 		return msuserDao.queryMsuserbyvo(msuserVo);
 	}
+	public Msuser queryMsuserByuseraccount(String account) {
+		// TODO Auto-generated method stub
+		return msuserDao.queryMsuserByuseraccount( account);
+	}
 }

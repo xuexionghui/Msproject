@@ -31,4 +31,9 @@ public class MsmerchantService {
 		// TODO Auto-generated method stub
 		return msmerchantDao.queryMsmerchantbyvo(msmerchantVo);
 	}
+
+	public Msmerchant queryMsmerchantByaccount(String account) {
+		// TODO Auto-generated method stub
+		return msmerchantDao.queryMsmerchantByaccount(account);
+	}
 }

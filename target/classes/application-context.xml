@@ -12,8 +12,8 @@
     http://www.springframework.org/schema/tx/spring-tx.xsd  
      http://www.springframework.org/schema/cache  
     http://www.springframework.org/schema/cache/spring-cache.xsd">  
-      
-    <!-- 自动扫描 -->       <!--  这样注解才能生效-->
+    <!-- 引入util命名空间 -->
+     <!-- 自动扫描 -->       <!--  这样注解才能生效-->
     <context:component-scan base-package="com.junlaninfo.*"/>  
     <!-- 引入外置文件 -->  
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
@@ -42,6 +42,9 @@
               <value>classpath:mapper/Msmerchant.xml</value>
               <value>classpath:mapper/Msuser.xml</value>
               <value>classpath:mapper/Msproduct.xml</value>
+              <value>classpath:mapper/MsproducDetailtDao.xml</value>
+              <value>classpath:mapper/MsOrderDao.xml</value>
+              
             
           </array>
       </property>
@@ -72,4 +75,8 @@
     
     <!-- 使用声明式事务   -->
     <tx:annotation-driven transaction-manager="txManager" /> 
-</beans>  
+     
+        <!-- 创建名为 springSessionRepositoryFilter 的Spring Bean，继承自Filter。
+        springSessionRepositoryFilter替换容器默认的HttpSession支持为Spring Session，
+        将Session实例存放在Redis中 -->
+     </beans>  

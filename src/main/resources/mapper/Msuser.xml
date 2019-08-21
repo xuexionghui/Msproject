@@ -73,4 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<include refid="consutomsql"></include>
 		</where> 
 	</select>
+	<select id="queryMsuserByuseraccount" parameterType="java.lang.String" resultType="msuser">
+		select * from msuser where useraccount = #{value}
+	</select>
 </mapper>

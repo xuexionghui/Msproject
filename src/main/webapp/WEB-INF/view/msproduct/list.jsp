@@ -42,7 +42,7 @@
 		<td>${item.stockcount }</td>
 		<td>${item.description }</td>
 		<td><a href="toupdatemsproduct?id=${item.id}">修改</a>||<a href="deletemsproductByid?id=${item.id}">删除</a>||<a href="querymsproductByid?id=${item.id}">查看</a>||<a href="toupdatemsproductstate?id=${item.id}">审核</a>
-		||<a href="/Msproject/msproductDetailAction/toinsertMsproductdetail?productid=${item.id}&&merchantid=${item.msmerchantid}">添加商品详情</a>||<a href="/Msproject/msproductDetailAction/queryMsproductdetailByid?productid=${item.id}">查看商品详情</a>||<a href="/Msproject/msproductDetailAction/toupdateMsproductdetail?productid=${item.id}">修改商品详情</a></td>
+		||<a href="/Msproject/toinsertMsproductdetail?productid=${item.id}&&merchantid=${item.msmerchantid}">添加商品详情</a>||<a href="/Msproject/queryMsproductdetailByid?productid=${item.id}">查看商品详情</a>||<a href="/Msproject/toupdateMsproductdetail?productid=${item.id}">修改商品详情</a></td>
 		>
 	</c:forEach>
     </table>
